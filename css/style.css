@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 20px;
+    background-color: #f4f4f9; 
+}
+
+h1 {
+    color: #333366; 
+}
+
+input {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 8px 12px;
+    margin-left: 5px;
+    background-color: #6a05ad; 
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    display: inline-block;
+    width: 90%;
+    max-width: 300px;
+}
+
+li {
+    background-color: white;
+    margin: 5px 0;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.tarea-terminada {
+    text-decoration: line-through;
+    color: #999;
+    background-color: #e0f7fa; 
+    border-left: 5px solid #00bcd4; 
+}
