@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aplicación web para gestionar tareas personales">
+    <title>Gestor Básico de Tareas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Mis Tareas</h1>
+        <nav>
+            <ul>
+                <li><a href="https://www.toyota.mx/">Inicio</a></li>
+                <li><a href="https://www.mercedes-benz.com.mx/es/vans/models.html?utm_source=adwords&utm_medium=sem&utm_content=SEM_CATEGORY_MODELOS&gclsrc=aw.ds&gad_source=1&gad_campaignid=20924448684&gbraid=0AAAAAquOx9-ws-nHwZ6I1dJtY9o8wadd4&gclid=CjwKCAjwpOfHBhAxEiwAm1SwEnoBBaicunDoIUQ26UPp3ILBSkGxLk0LNit_q8fXcH4oUsUzsgs3ABoCUzUQAvD_BwE">Acerca de</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Añadir Tarea</h2>
+            <form id="formulario-tareas">
+                
+                <label for="titulo-tarea">Título de la Tarea:</label>
+                <input type="text" id="titulo-tarea" required placeholder="Ej: Comprar pan">
+                
+                <label for="prioridad-tarea">Prioridad:</label>
+                <select id="prioridad-tarea" required>
+                    <option value="baja">Baja</option>
+                    <option value="media" selected>Media</option>
+                    <option value="alta">Alta</option>
+                </select>
+                
+                <button type="submit">Agregar Tarea</button>
+                <p id="retroalimentacion" class="oculto"></p>
+            </form>
+        </section>
+
+        <section>
+            <h2>Lista</h2>
+            <ul id="lista-tareas">
+                </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Examen Básico</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
