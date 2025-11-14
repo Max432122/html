@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario Completo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Ejemplo de método POST con Spring Boot</h1>
+
+<form id="saludoForm">
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" required>
+
+    <label for="apellidop">Apellido paterno:</label>
+    <input type="text" id="apellidop" required>
+
+    <label for="apellidom">Apellido materno:</label>
+    <input type="text" id="apellidom" required>
+
+    <label for="correo">Correo:</label>
+    <input type="email" id="correo" required>
+
+    <label for="genero">Género:</label>
+    <select id="genero" required>
+        <option value="">Selecciona una opción</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Femenino">Femenino</option>
+        <option value="Otro">Otro</option>
+    </select>
+
+    <label for="telefono">Teléfono (10 dígitos):</label>
+    <input type="tel" id="telefono" maxlength="10" required>
+
+    <label for="contrasena">Contraseña:</label>
+    <input type="password" id="contrasena" minlength="6" required>
+
+    <label for="confirmar">Confirmar contraseña:</label>
+    <input type="password" id="confirmar" minlength="6" required>
+
+    <p id="error" class="error"></p>
+
+    <button class="submit">Enviar</button>
+</form>
+
+<h3>Respuesta del servidor:</h3>
+<p id="respuesta"></p>
+
+<script>
+
+    const form = document.getElementById("saludoForm");
+    const error = document.getElementById("error");
+
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        error.textContent = "";
+
+        const nombre = document.getElementById("nombre").value.trim();
+        const apellidop = document.getElementById("apellidop").value.trim();
+        const apellidom = document.getElementById("apellidom").value.trim();
+        const correo = document.getElementById("correo").value.trim();
+        const genero = document.getElementById("genero").value;
+        const telefono = document.getElementById("telefono").value.trim();
+        const contrasena = document.getElementById("contrasena").value;
+        const confirmar = document.getElementById("confirmar").value;
+
+        if (contrasena !== confirmar) {
+            error.textContent = "Las contraseñas no coinciden.";
+            return;
+        }
+
+        const datos = { nombre, apellidop, apellidom, correo, genero, telefono, contrasena };
+
+        const respuesta = await fetch("/saludo", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(datos)
+        });
+
+        const json = await respuesta.json();
+        document.getElementById("respuesta").textContent = json.mensaje;
+    });
+
+</script>
+</body>
+</html>
